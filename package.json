@@ -1,0 +1,22 @@
+{
+  "name": "object-key-validator",
+  "version": "1.0.0",
+  "description": "check objects for the existence of certain keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakeDawkins/object-key-validator.git"
+  },
+  "author": "Jake Dawkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakeDawkins/object-key-validator/issues"
+  },
+  "homepage": "https://github.com/JakeDawkins/object-key-validator#readme",
+  "devDependencies": {
+    "jest": "^22.0.3"
+  }
+}
