@@ -15,6 +15,22 @@ it('checks $or properly', () => {
   expect(validate(rule, { c: 1 })).toEqual(false);
 });
 
+it('checks $not properly with `or`', () => {
+  const rule = { $not: { $or: ['a', 'b'] } };
+
+  expect(validate(rule, { b: 1 })).toEqual(false);
+  expect(validate(rule, { a: 1, b: 1 })).toEqual(false);
+  expect(validate(rule, { c: 1 })).toEqual(true);
+});
+
+it('checks $not properly with `and`', () => {
+  const rule = { $not: { $and: ['a', 'b'] } };
+
+  expect(validate(rule, { b: 1 })).toEqual(true);
+  expect(validate(rule, { a: 1, b: 1 })).toEqual(false);
+  expect(validate(rule, { c: 1 })).toEqual(true);
+});
+
 it('checks nested $and properly', () => {
   const rule = { $and: [{ $and: ['a', 'b'] }, 'c'] };
 
