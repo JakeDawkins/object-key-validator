@@ -22,9 +22,11 @@ Checks an array of rules. If _all_ of the rules pass, validation returns true.
 
 ```
 // checks to make sure an object has BOTH `a` AND `b` keys
+// logically: (a && b)
 { $and: ['a', 'b'] }
 
 // checks to make sure an object has `a`, `b`, AND `c` keys
+// logically: (a && (b && c))
 {
   $and: [
     'a',
@@ -41,9 +43,11 @@ Checks an array of rules. If _one or more_ of the rules pass, validation returns
 
 ```
 // checks to make sure an object has EITHER `a` OR `b` keys
+// logically: (a || b)
 { $or: ['a', 'b'] }
 
 // checks to make sure an object has either an `a` key OR a `b` AND `c` key
+// logically: (a || (b && c))
 {
   $or: [
     'a',
@@ -60,9 +64,11 @@ Inverts the response value of a _single_ rule. `$not` does **not** accept an arr
 
 ```
 // checks to make sure an object doesn't have EITHER `a` OR `b` keys
+// logically: !(a || b)
 { $not: { $or: ['a', 'b'] } }
 
 // checks to make sure an object doesn't have either an `a` key OR a `b` AND `c` key
+// logically: !(a || (b && c))
 {
   $not: {
     $or: [
