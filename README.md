@@ -1,5 +1,7 @@
 # object-key-validator
 
+[![npm version](https://badge.fury.io/js/object-key-validator.svg)](https://badge.fury.io/js/object-key-validator)
+
 check objects for the existence of certain keys
 
 ## API
